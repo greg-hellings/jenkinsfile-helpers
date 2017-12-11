@@ -4,7 +4,7 @@ import java.nio.file.Paths
 
 def call(String name, List packages = []) {
 	def path = "${WORKSPACE}/${name}"
-	if ( path.find(" ") != -1) {
+	if ( path.contains(" ") ) {
 		throw new Exception("Path cannot include a space")
 	}
 	// Ensure we hvae a fresh path
