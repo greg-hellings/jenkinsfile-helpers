@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-import java.nio.files.Files
+import java.nio.file.Files
 
 def call(String name, List packages = []) {
 	def path = "${WORKSPACE}/${name}"
