@@ -4,6 +4,9 @@ import java.nio.file.Paths
 
 def call(String name, List packages = []) {
 	def path = "${WORKSPACE}/${name}"
+	if ( path.find(" ") != -1) {
+		throw new Exception("Path cannot include a space")
+	}
 	// Ensure we hvae a fresh path
 	if( Files.exists(Paths.get(path)) ) {
 		sh "rm -rf '${path}'"
