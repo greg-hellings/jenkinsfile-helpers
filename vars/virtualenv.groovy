@@ -10,7 +10,7 @@ def call(String name, List packages = []) {
 	}
 
 	sh """virtualenv --no-setuptools --system-site-packages '${name}'
-	      . '${name}/bin/activate'
+	      . '${path}/bin/activate'
 	      curl https://bootstrap.pypa.io/get-pip.py | python
-	      '${name}/bin/pip' install ${packages.join(' ')}"""
+	      '${path}/bin/python' '${path}/bin/pip' install ${packages.join(' ')}"""
 }
