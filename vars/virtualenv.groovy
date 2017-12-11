@@ -1,9 +1,10 @@
 #!/usr/bin/groovy
+import java.nio.files.Files
 
 def call(String name, List packages = []) {
 	def path = "${WORKSPACE}/${name}"
 	// Ensure we hvae a fresh path
-	if( dirExists(path) ) {
+	if( Files.exists(path) ) {
 		sh "rm -rf '${path}'"
 	}
 
