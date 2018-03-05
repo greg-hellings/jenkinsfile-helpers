@@ -7,7 +7,7 @@ def call(String name, List packages = []) {
 	// Ensure we hvae a fresh path
 	sh "rm -rf '${path}'"
 
-	sh """virtualenv --no-setuptools --system-site-packages '${name}'
+	sh """virtualenv --no-setuptools --system-site-packages '${path}'
 	      . '${path}/bin/activate'
 	      curl https://bootstrap.pypa.io/get-pip.py | python
 	      '${path}/bin/python' '${path}/bin/pip' install ${packages.join(' ')}"""
